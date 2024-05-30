@@ -1,11 +1,11 @@
-// Variables
+// Variáveis
 $primary-color: #ff6347;
 $secondary-color: #ff4500;
 $background-color: #f0f0f0;
 $text-color: #333;
 $light-color: #fff;
 $dark-color: #000;
-$font-family: 'Arial', sans-serif;
+$font-family: "itc-avant-garde-gothic-pro", sans-serif;
 $input-border-color: #ccc;
 $input-focus-border-color: $primary-color;
 $link-color: $primary-color;
@@ -34,7 +34,7 @@ body {
 
 // Header
 .header {
-  background: linear-gradient(rgba($dark-color, 0.5), rgba($dark-color, 0.5)), url('header-bg.jpg') no-repeat center center/cover;
+  background: linear-gradient(rgba($dark-color, 0.5), rgba($dark-color, 0.5)), url('public/images/background\ one.jpg') no-repeat center center/cover;
   height: 100vh;
   @include flex-center;
   flex-direction: column;
@@ -44,12 +44,11 @@ body {
   .navbar {
     position: absolute;
     top: 0;
-    height: 8rem;
     width: 100%;
     @include flex-center;
     justify-content: space-between;
     padding: 20px 50px;
-    background: rgba($dark-color, 0.5);
+    background: rgba($dark-color, 1);
 
     &__logo {
       font-size: 24px;
@@ -78,6 +77,23 @@ body {
     }
   }
 
+  .logo__name {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-style: italic;
+  }
+  
+  .logo__title {
+    font-size: 1.8rem;
+  }
+  
+  .logo__slogan {
+    font-size: .8rem;
+    color: $primary-color;
+    letter-spacing: .1rem;
+  }
+
   .header__content {
     text-align: center;
 
@@ -87,33 +103,117 @@ body {
     }
 
     .header__title {
-      font-size: 48px;
-      margin-bottom: 20px;
+      font-size: 3rem;
       animation: 1s ease-out 0s 1 slideInTop;
     }
 
     .header__subtitle {
-      font-size: 24px;
+      font-size: 1.6rem;
       margin-bottom: 30px;
     }
 
-    .header__cta {
-      padding: 15px 30px;
-      background-color: $primary-color;
-      color: $light-color;
-      text-decoration: none;
+    .header__cta, .header__cta::after {
+      padding: 10px 50px;
+      font-size: 1.4rem;
+      border: none;
       border-radius: 5px;
-      font-size: 18px;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: $secondary-color;
+      color: white;
+      background-color: transparent;
+      position: relative;
+    }
+    
+    .header__cta::after {
+      --move1: inset(50% 50% 50% 50%);
+      --move2: inset(31% 0 40% 0);
+      --move3: inset(39% 0 15% 0);
+      --move4: inset(45% 0 40% 0);
+      --move5: inset(45% 0 6% 0);
+      --move6: inset(14% 0 61% 0);
+      clip-path: var(--move1);
+      content: 'Our Services';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+    }
+    
+    .header__cta:hover::after {
+      animation: glitch_4011 1s;
+      animation-timing-function: steps(2, end);
+      text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px $secondary-color;
+      background-color: transparent;
+    }
+    
+    .header__cta:hover {
+      text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px $secondary-color;
+    }
+    
+    .header__cta:hover {
+      background-color: transparent;
+    }
+    
+    @keyframes glitch_4011 {
+      0% {
+        clip-path: var(--move1);
+        transform: translate(0px, -10px);
+      }
+    
+      10% {
+        clip-path: var(--move2);
+        transform: translate(-10px, 10px);
+      }
+    
+      20% {
+        clip-path: var(--move3);
+        transform: translate(10px, 0px);
+      }
+    
+      30% {
+        clip-path: var(--move4);
+        transform: translate(-10px, 10px);
+      }
+    
+      40% {
+        clip-path: var(--move5);
+        transform: translate(10px, -10px);
+      }
+    
+      50% {
+        clip-path: var(--move6);
+        transform: translate(-10px, 10px);
+      }
+    
+      60% {
+        clip-path: var(--move1);
+        transform: translate(10px, -10px);
+      }
+    
+      70% {
+        clip-path: var(--move3);
+        transform: translate(-10px, 10px);
+      }
+    
+      80% {
+        clip-path: var(--move2);
+        transform: translate(10px, -10px);
+      }
+    
+      90% {
+        clip-path: var(--move4);
+        transform: translate(-10px, 10px);
+      }
+    
+      100% {
+        clip-path: var(--move1);
+        transform: translate(0);
       }
     }
   }
 }
 
-// Sections
+// Seções
 .section {
   padding: 50px 0;
   text-align: center;
@@ -131,11 +231,12 @@ body {
   }
 }
 
-// Services
+// Serviços
 .services {
   &__content {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   &__card {
@@ -164,7 +265,8 @@ body {
       width: 18rem;
       margin-top: .6rem;
     }
-    .service__img{
+
+    .service__img {
       height: 12rem;
       object-fit: contain;
       border-radius: .6rem;
@@ -172,147 +274,155 @@ body {
   }
 }
 
-// About
+// Sobre
 .about {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f8f8f8;
 
-  & p{
+  & p {
     width: 50rem;
   }
 }
 
-// Contact
+// Contato
 .contact {
-    background-color: #fff;
-    padding: 50px 0;
-  
-    &__header {
-      margin-bottom: 30px;
-  
-      &__title {
-        font-size: 36px;
-        color: $primary-color;
+  background-color: #fff;
+  padding: 50px 0;
+
+  &__header {
+    margin-bottom: 30px;
+
+    &__title {
+      font-size: 36px;
+      color: $primary-color;
+    }
+  }
+
+  .contact__form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: $light-color;
+    box-shadow: 0 4px 8px rgba($dark-color, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .contact__input, .contact__textarea {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid $input-border-color;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $input-focus-border-color;
+        outline: none;
+        box-shadow: 0 0 5px rgba($input-focus-border-color, 0.5);
       }
     }
-  
-    &__form {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 30px;
-      background-color: $light-color;
-      box-shadow: 0 4px 8px rgba($dark-color, 0.1);
-      border-radius: 10px;
-      @include flex-center;
-      flex-direction: column;
-  
-      &__input, &__textarea {
-        width: 100%;
-        padding: 15px;
-        margin: 10px 0;
-        border: 1px solid $input-border-color;
-        border-radius: 5px;
-        font-size: 16px;
-        transition: border-color 0.3s;
-  
-        &:focus {
-          border-color: $input-focus-border-color;
-          outline: none;
-          box-shadow: 0 0 5px rgba($input-focus-border-color, 0.5);
-        }
-      }
-  
-      &__textarea {
-        resize: vertical;
-        height: 150px;
-      }
-  
-      &__button {
-        padding: 15px 30px;
-        background-color: $primary-color;
-        color: $light-color;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 18px;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: $secondary-color;
-        }
+
+    .contact__textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact__button {
+      padding: 15px 30px;
+      background-color: $primary-color;
+      color: $light-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $secondary-color;
       }
     }
   }
-  
-  // Footer
-  .footer {
-    background-color: $dark-color;
-    color: $light-color;
-    padding: 40px 0;
-    text-align: center;
-  
-    &__social {
-      margin-bottom: 20px;
-  
-      &__link {
-        color: $light-color;
-        font-size: 24px;
-        margin: 0 10px;
-        transition: color 0.3s;
-  
-        &:hover {
-          color: $primary-color;
-        }
+}
+
+// Rodapé
+.footer {
+  background-color: $dark-color;
+  color: $light-color;
+  text-align: center;
+  padding: 20px 0;
+}
+
+// Links
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// Media Queries
+@media (max-width: 768px) {
+  .header {
+    .navbar {
+      padding: 10px 20px;
+
+      &__links {
+        flex-direction: column;
+        gap: .3rem;
       }
     }
-  
-    &__text {
-      font-size: 14px;
-    }
   }
-  
-  // Links
-  a {
-    color: $link-color;
-    text-decoration: none;
-    transition: color 0.3s;
-  
-    &:hover {
-      color: $link-hover-color;
-    }
+
+  .services__content {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  // Inputs
-  input[type="text"], input[type="email"], textarea {
+
+  .services__card {
     width: 100%;
-    padding: 15px;
+    max-width: 300px;
     margin: 10px 0;
-    border: 1px solid $input-border-color;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-  
-    &:focus {
-      border-color: $input-focus-border-color;
-      outline: none;
-      box-shadow: 0 0 5px rgba($input-focus-border-color, 0.5);
+  }
+
+  .about p {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .contact__form {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__content {
+    .header__title {
+      font-size: 2rem;
+    }
+
+    .header__subtitle {
+      font-size: 1rem;
+    }
+
+    .header__cta {
+      font-size: 1rem;
+      padding: 8px 30px;
     }
   }
-  
-  // Buttons
-  button {
-    padding: 15px 30px;
-    background-color: $primary-color;
-    color: $light-color;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
-  
-    &:hover {
-      background-color: $secondary-color;
-    }
+
+  .services__card {
+    width: 90%;
   }
+
+  .contact__header__title {
+    font-size: 28px;
+  }
+}
