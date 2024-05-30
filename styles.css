@@ -23,6 +23,7 @@ body {
 .header .navbar {
   position: absolute;
   top: 0;
+  height: 8rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -106,15 +107,18 @@ body {
 .services__content {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
 }
 .services__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #fff;
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  width: 26rem;
 }
 .services__card:hover {
   transform: translateY(-10px);
@@ -125,10 +129,24 @@ body {
 }
 .services__card .service-card__text {
   font-size: 16px;
+  width: 18rem;
+  margin-top: 0.6rem;
+}
+.services__card .service__img {
+  height: 12rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 0.6rem;
 }
 
 .about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #f8f8f8;
+}
+.about p {
+  width: 50rem;
 }
 
 .contact {
