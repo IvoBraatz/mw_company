@@ -267,9 +267,9 @@ body {
     }
 
     .service__img {
-      height: 12rem;
-      object-fit: contain;
-      border-radius: .6rem;
+      width: 16rem;
+      object-fit: cover;
+      border-radius: 8px;
     }
   }
 }
