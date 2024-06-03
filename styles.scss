@@ -235,8 +235,8 @@ body {
 .services {
   &__content {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__card {
@@ -249,7 +249,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba($dark-color, 0.1);
     transition: transform 0.3s;
-    width: 26rem;
 
     &:hover {
       transform: translateY(-10px);
