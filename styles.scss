@@ -40,6 +40,7 @@ body {
   flex-direction: column;
   text-align: center;
   color: $light-color;
+  
 
   .navbar {
     position: absolute;
@@ -47,8 +48,9 @@ body {
     width: 100%;
     @include flex-center;
     justify-content: space-between;
-    padding: 20px 50px;
+    padding: 20px 20px;
     background: rgba($dark-color, 1);
+    
 
     &__logo {
       font-size: 24px;
@@ -58,7 +60,7 @@ body {
     &__links {
       list-style: none;
       @include flex-center;
-      gap: .6rem;
+      gap: 0.6rem;
 
       &__item {
         margin: 0 15px;
@@ -77,6 +79,11 @@ body {
     }
   }
 
+  .navbar__link{
+    text-decoration: none;
+    color: $primary-color;
+  }
+
   .logo__name {
     display: flex;
     flex-direction: column;
@@ -89,9 +96,9 @@ body {
   }
   
   .logo__slogan {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: $primary-color;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
   }
 
   .header__content {
@@ -215,7 +222,7 @@ body {
 
 // Seções
 .section {
-  padding: 50px 0;
+  padding: 2rem 0;
   text-align: center;
 
   &__header {
@@ -262,11 +269,11 @@ body {
     .service-card__text {
       font-size: 16px;
       width: 18rem;
-      margin-top: .6rem;
+      margin-top: 0.6rem;
     }
 
     .service__img {
-      width: 16rem;
+      max-width: 16rem;
       object-fit: cover;
       border-radius: 8px;
     }
@@ -285,10 +292,27 @@ body {
   }
 }
 
+.contact__container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 6rem;
+}
+
+.section__subtitle{
+  font-size: 1rem;
+  color: $secondary-color;
+  letter-spacing: 1px;
+}
+
 // Contato
 .contact {
-  background-color: #fff;
-  padding: 50px 0;
+  background-color: $background-color;
+  width: 34rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 8px rgba($dark-color, 0.1);
+  margin-top: 2rem;  
 
   &__header {
     margin-bottom: 30px;
@@ -301,10 +325,7 @@ body {
 
   .contact__form {
     max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: $light-color;
-    box-shadow: 0 4px 8px rgba($dark-color, 0.1);
+    margin: 2rem auto;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -318,28 +339,29 @@ body {
       border-radius: 5px;
       font-size: 16px;
       transition: border-color 0.3s;
+      color: $dark-color;
 
       &:focus {
         border-color: $input-focus-border-color;
         outline: none;
-        box-shadow: 0 0 5px rgba($input-focus-border-color, 0.5);
+        box-shadow: 0 0 5px rgba($primary-color, 0.5);
       }
     }
 
     .contact__textarea {
       resize: vertical;
-      height: 150px;
     }
 
     .contact__button {
       padding: 15px 30px;
-      background-color: $primary-color;
-      color: $light-color;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
+      background-color: $primary-color;
+      color: $light-color;
       font-size: 18px;
+      cursor: pointer;
       transition: background-color 0.3s;
+      margin-top: 10px;
 
       &:hover {
         background-color: $secondary-color;
@@ -348,80 +370,137 @@ body {
   }
 }
 
-// Rodapé
-.footer {
+.logo{
+  width: 2rem;
+}
+footer {
   background-color: $dark-color;
   color: $light-color;
+  padding: 2rem 0;
   text-align: center;
-  padding: 20px 0;
 }
 
-// Links
-a {
-  color: $link-color;
-  text-decoration: none;
-  transition: color 0.3s;
-
-  &:hover {
-    color: $link-hover-color;
-  }
-}
-
-// Media Queries
+// Responsividade
 @media (max-width: 768px) {
-  .header {
-    .navbar {
-      padding: 10px 20px;
+  .navbar {
+    padding: 10px 0;
+  }
 
-      &__links {
-        flex-direction: column;
-        gap: .3rem;
-      }
-    }
+  .navbar__links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header {
+    padding: 20px 0;
+  }
+
+  .header__title {
+    font-size: 36px;
+  }
+
+  .header__subtitle {
+    font-size: 24px;
+  }
+
+  .header__cta {
+    font-size: 18px;
+    padding: 10px 20px;
   }
 
   .services__content {
     flex-direction: column;
-    align-items: center;
   }
 
+  .contact {
+    width: 90%;
+  }
+
+  .about p {
+    width: 90%;
+  }
+}
+
+// Responsividade para telas menores que 400px
+@media (max-width: 400px) {
+  .navbar {
+    padding: 5px;
+  }
+
+
+  .navbar__links {
+    gap: 5px;
+
+    &__item {
+      margin: 0 10px;
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+  }
+
+  .navbar__link{
+    font-size: .6rem;
+  }
+
+  .header {
+    padding: 10px;
+
+    .header__title {
+      font-size: 28px;
+    }
+
+    .header__subtitle {
+      font-size: 18px;
+    }
+
+    .header__cta {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+
+  .services__content{
+    flex-wrap: nowrap;
+  }
+  .service__img{
+    width: 10rem;
+  }
   .services__card {
+    margin: 10px;
+    padding: 15px;
+
+    .service-card__title {
+      font-size: 20px;
+    }
+
+    .service-card__text {
+      width: 12rem;
+      font-size: 10px;
+    }
+  }
+
+  .contact {
     width: 100%;
-    max-width: 300px;
-    margin: 10px 0;
+    padding: 10px;
+
+    &__header__title {
+      font-size: 28px;
+    }
+
+    .contact__input, .contact__textarea {
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .contact__button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
   }
 
   .about p {
     width: 100%;
-    padding: 0 1rem;
-  }
-
-  .contact__form {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header__content {
-    .header__title {
-      font-size: 2rem;
-    }
-
-    .header__subtitle {
-      font-size: 1rem;
-    }
-
-    .header__cta {
-      font-size: 1rem;
-      padding: 8px 30px;
-    }
-  }
-
-  .services__card {
-    width: 90%;
-  }
-
-  .contact__header__title {
-    font-size: 28px;
   }
 }

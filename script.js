@@ -9,3 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const serviceID = 'mw_company';
+    const templateID = 'template_4nbqqwn';
+
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            alert('E-mail enviado com sucesso!');
+        }, (err) => {
+            alert(JSON.stringify(err));
+        });
+});

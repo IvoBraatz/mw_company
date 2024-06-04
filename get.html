@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MW Company</title>
+    <title>MW Company - Contratar Serviço</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="public/images/logos/logo.png" type="image/x-icon">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("xffB9Bnv66-8D7RyW"); // Substitua pelo seu ID de usuário EmailJS
+        })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -15,73 +22,36 @@
                     <h1 class="logo__title">COMPANY</h1>
                 </div>
                 <div class="logo__name">
-                    <h2 class="logo__slogan">IDEAS THATH FLOW</h2>
+                    <h2 class="logo__slogan">IDEAS THAT FLOW</h2>
                 </div>
             </div>
             <ul class="navbar__links">
-                <li class="navbar__item"><a class="navbar__link" href="#about">About</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#services">Services</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="#contact">Contact</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="index.html">Home</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="index.html#services">Services</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="https://ivobraatz.github.io/">Projects</a></li>
             </ul>
         </nav>
-        <div class="header__content">
-            <h1 class="header__title">MW Company</h1>
-            <p class="header__subtitle">We develop the future of software</p>
-            <a class="header__cta" href="#services">Our Services</a>
+        <div class="contact__container">
+            <h2 class="section__title">contact us</h2>
+            <h2 class="section__subtitle">let's make your idea come true</h2>
+            <section id="contact" class="section contact">
+                <form class="contact__form" id="contact-form">
+                    <input type="text" class="contact__input" placeholder="Your Name" name="name" required>
+                    <input type="email" class="contact__input" placeholder="Your Email" name="email" required>
+                    <textarea class="contact__textarea" placeholder="Your Message" name="message" required></textarea>
+                    <button type="submit" class="contact__button">Send Message</button>
+                </form>
+            </section>
         </div>
     </header>
     
-    <section id="about" class="section about">
-        <div class="section__header">
-            <h2 class="section__title">About Us</h2>
-        </div>
-        <div class="section__content">
-            <p>We are a software development company specializing in creating custom solutions for our clients. Our team is dedicated to providing the best service and quality products to help your business succeed.</p>
-        </div>
-    </section>
-
-    <section id="services" class="section services">
-        <div class="section__header">
-            <h2 class="section__title">Our Services</h2>
-        </div>
-        <div class="services__content">
-            <div class="services__card">
-                <h3 class="service-card__title">Web Development</h3>
-                <img src="public/images/laptop.jpg" alt="" class="service__img">
-                <p class="service-card__text">We build responsive and dynamic websites tailored to your needs.</p>
-            </div>
-            <div class="services__card">
-                <h3 class="service-card__title">Mobile App Development</h3>
-                <img src="public/images/hand-cellphone.jpg" alt="" class="service__img">
-                <p class="service-card__text">Our team creates intuitive and engaging mobile applications for all platforms.</p>
-            </div>
-            <div class="services__card">
-                <h3 class="service-card__title">Cloud Solutions</h3>
-                <img src="public/images/cloud.jpg" alt="" class="service__img">
-                <p class="service-card__text">We offer scalable cloud solutions to help your business grow and succeed.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section contact">
-        <div class="contact__header">
-            <h2 class="contact__title">Contact Us</h2>
-        </div>
-        <form class="contact__form">
-            <input type="text" class="contact__input" placeholder="Your Name">
-            <input type="email" class="contact__input" placeholder="Your Email">
-            <textarea class="contact__textarea" placeholder="Your Message"></textarea>
-            <button type="submit" class="contact__button">Send Message</button>
-        </form>
-    </section>
-
     <footer class="footer">
         <div class="footer__social">
-            <a href="#" class="footer__link">Facebook</a>
-            <a href="#" class="footer__link">Twitter</a>
-            <a href="#" class="footer__link">LinkedIn</a>
+            <a href="https://github.com/IvoBraatz" class="footer__link"><img src="public/images/logos/github_PNG.png" alt="Logo Git Hub" class="logo"></a>
+            <a href="https://www.linkedin.com/in/ivo-braatz" class="footer__link"><img src="public/images/logos/logo-linkedin.png" alt="Logo Linkedin" class="logo"></a>
         </div>
         <p class="footer__text">&copy; 2024 MW Company. All Rights Reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

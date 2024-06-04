@@ -28,7 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 50px;
+  padding: 20px 20px;
   background: black;
 }
 .header .navbar__logo {
@@ -52,6 +52,10 @@ body {
   transition: color 0.3s;
 }
 .header .navbar__links__item__link:hover {
+  color: #ff6347;
+}
+.header .navbar__link {
+  text-decoration: none;
   color: #ff6347;
 }
 .header .logo__name {
@@ -186,7 +190,7 @@ body {
 }
 
 .section {
-  padding: 50px 0;
+  padding: 2rem 0;
   text-align: center;
 }
 .section__header {
@@ -228,7 +232,7 @@ body {
   margin-top: 0.6rem;
 }
 .services__card .service__img {
-  width: 16rem;
+  max-width: 16rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 8px;
@@ -244,9 +248,26 @@ body {
   width: 50rem;
 }
 
+.contact__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 6rem;
+}
+
+.section__subtitle {
+  font-size: 1rem;
+  color: #ff4500;
+  letter-spacing: 1px;
+}
+
 .contact {
-  background-color: #fff;
-  padding: 50px 0;
+  background-color: #f0f0f0;
+  width: 34rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
 }
 .contact__header {
   margin-bottom: 30px;
@@ -257,10 +278,7 @@ body {
 }
 .contact .contact__form {
   max-width: 600px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -274,6 +292,7 @@ body {
   border-radius: 5px;
   font-size: 16px;
   transition: border-color 0.3s;
+  color: #000;
 }
 .contact .contact__form .contact__input:focus, .contact .contact__form .contact__textarea:focus {
   border-color: #ff6347;
@@ -282,78 +301,126 @@ body {
 }
 .contact .contact__form .contact__textarea {
   resize: vertical;
-  height: 150px;
 }
 .contact .contact__form .contact__button {
   padding: 15px 30px;
-  background-color: #ff6347;
-  color: #fff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  background-color: #ff6347;
+  color: #fff;
   font-size: 18px;
+  cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 10px;
 }
 .contact .contact__form .contact__button:hover {
   background-color: #ff4500;
 }
 
-.footer {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
+.logo {
+  width: 2rem;
 }
 
-a {
-  color: #ff6347;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-a:hover {
-  color: #ff4500;
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
-  .header .navbar {
-    padding: 10px 20px;
+  .navbar {
+    padding: 10px 0;
   }
-  .header .navbar__links {
+  .navbar__links {
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 10px;
+  }
+  .header {
+    padding: 20px 0;
+  }
+  .header__title {
+    font-size: 36px;
+  }
+  .header__subtitle {
+    font-size: 24px;
+  }
+  .header__cta {
+    font-size: 18px;
+    padding: 10px 20px;
   }
   .services__content {
     flex-direction: column;
-    align-items: center;
   }
-  .services__card {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px 0;
+  .contact {
+    width: 90%;
   }
   .about p {
-    width: 100%;
-    padding: 0 1rem;
-  }
-  .contact__form {
-    padding: 20px;
+    width: 90%;
   }
 }
-@media (max-width: 480px) {
-  .header__content .header__title {
-    font-size: 2rem;
+@media (max-width: 400px) {
+  .navbar {
+    padding: 5px;
   }
-  .header__content .header__subtitle {
-    font-size: 1rem;
+  .navbar__links {
+    gap: 5px;
   }
-  .header__content .header__cta {
-    font-size: 1rem;
-    padding: 8px 30px;
+  .navbar__links__item {
+    margin: 0 10px;
+  }
+  .navbar__links__link {
+    font-size: 16px;
+  }
+  .navbar__link {
+    font-size: 0.6rem;
+  }
+  .header {
+    padding: 10px;
+  }
+  .header .header__title {
+    font-size: 28px;
+  }
+  .header .header__subtitle {
+    font-size: 18px;
+  }
+  .header .header__cta {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .services__content {
+    flex-wrap: nowrap;
+  }
+  .service__img {
+    width: 10rem;
   }
   .services__card {
-    width: 90%;
+    margin: 10px;
+    padding: 15px;
+  }
+  .services__card .service-card__title {
+    font-size: 20px;
+  }
+  .services__card .service-card__text {
+    width: 12rem;
+    font-size: 10px;
+  }
+  .contact {
+    width: 100%;
+    padding: 10px;
   }
   .contact__header__title {
     font-size: 28px;
+  }
+  .contact .contact__input, .contact .contact__textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .contact .contact__button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  .about p {
+    width: 100%;
   }
 }/*# sourceMappingURL=styles.css.map */
