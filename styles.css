@@ -5,6 +5,10 @@
   font-family: "itc-avant-garde-gothic-pro", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #f0f0f0;
   color: #333;
@@ -92,6 +96,8 @@ body {
 .header .header__content .header__subtitle {
   font-size: 1.6rem;
   margin-bottom: 30px;
+  color: #ff4500;
+  font-weight: 600;
 }
 .header .header__content .header__cta, .header .header__content .header__cta::after {
   padding: 10px 50px;

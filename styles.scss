@@ -26,6 +26,11 @@ $link-hover-color: $secondary-color;
   font-family: $font-family;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 // Body
 body {
   background-color: $background-color;
@@ -117,6 +122,8 @@ body {
     .header__subtitle {
       font-size: 1.6rem;
       margin-bottom: 30px;
+      color: $secondary-color;
+      font-weight: 600;
     }
 
     .header__cta, .header__cta::after {
